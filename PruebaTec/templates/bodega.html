@@ -1,0 +1,64 @@
+{% extends 'index.html' %}
+{% block body %}
+
+    <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-dismiss m-2 alert-success">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong class="text-dark">{{ message }}</strong>
+            </div>
+            {% endfor %}
+            {% endif %}
+            <h2>Gestion de Bodegas</h2>
+            <div class="card">
+                <div class="card-body">
+                    <form action="/ingresarBodegas/" method="POST">{% csrf_token %}
+                        
+                        <div class="mb-3">
+                            <input type="text" id="txtNombreBodega" name="txtNombreBodega" class="form-control" placeholder="Nombre" required>
+                            
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" id="txtUbicacion" name="txtUbicacion" class="form-control" placeholder="Ubicacion">
+                        </div>
+                        <div class="mb-3">
+                            <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div> 
+        <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
+                
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>NOMBRE</th>
+                            <th>UBICACION</th>
+                            <th >ACCION</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for c in bodegas %} 
+                        <tr>
+                            <td>{{c.id}}</td>
+                            <td>{{c.nombre}}</td>
+                            <td>{{c.ubicacion}}</td>
+                            <td><a href="edicionBodega/{{c.id}}" class="btn btn-info">Editar</a></td>
+                            <td><a href="eliminarBodega/{{c.id}}" class="btn btn-danger btnEliminar">Eliminar</a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>   
+    </div>
+    
+    
+    
+{% endblock %}
+

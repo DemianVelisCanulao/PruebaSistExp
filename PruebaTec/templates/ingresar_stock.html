@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+{% block body %}
+<div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 offset-md-4">
+    <h2>Ingresar nuevo stock</h2>
+    <div class="card">
+        <div class="card-body">
+            <form action="" method="POST">{% csrf_token %}
+                <div class="mb-3">
+                    
+
+                    {{form.as_p}}
+
+                    
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>
+                </div>
+            </form>
+            
+        </div>
+    </div>
+</div> 
+{% endblock %}

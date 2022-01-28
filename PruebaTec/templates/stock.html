@@ -1,0 +1,39 @@
+{% extends 'index.html' %}
+{% block body %}
+
+
+<div class="row">
+      
+    <div class="container">
+        <h1>Listado de productos</h1>
+        <div class="table-reponsive" >
+            <table class="table table-striped" >
+                <thead class="table-dark">
+                    <tr>
+                        <th>Producto</th>
+                        <th>Detalle</th>
+                        <th>Bodega</th>
+                        <th>Stock</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for c in stockProductos %}
+                    <tr>
+                        <td>{{c.producto_id}}</td>
+                        <td>{{c.producto_id.descripcion}}</td>
+                        <td>{{c.bodega_id}}</td>
+                        <td>{{c.stock}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div class="mb-3">
+                <a href="{% url 'ingresar-stock' %}" class="button"><button type="button" class="btn btn-primary">Ingresar Stock</button></a>
+            </div>
+        </div>
+        
+    </div> 
+</div>
+{% endblock %}
+
+<script></script>

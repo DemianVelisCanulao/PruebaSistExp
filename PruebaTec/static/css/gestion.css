@@ -1,0 +1,17 @@
+body{
+    background-color: rgba(204, 236, 219, 0.5);
+    
+}
+
+th, td{
+    text-align: center;
+    vertical-align: middle;
+}
+
+
+/* deshabilitar flechas de input number */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
