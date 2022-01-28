@@ -15,31 +15,56 @@
     
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark  bg-dark">
-        <div class="container-fluid">
-          <img src="https://img.icons8.com/color/48/000000/biotech.png"/>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'productos' %}">Productos</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="{% url 'bodegas' %}">Bodegas</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'stock' %}">Stock de Bodega</a>
-              </li>
-             
-            
+  <div class="contenedor">
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark  bg-dark">
+          <div class="container-fluid contenedor-icon">
+            <a href="{% url 'home' %}"><img src="../static/img/dna_116521.png"/></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="{% url 'productos' %}">Productos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="{% url 'bodegas' %}">Bodegas</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="{% url 'stock' %}">Stock de Bodega</a>
+                </li>
+            </div>
           </div>
+        </nav>
+    </header>
+      {% block body %}
+      <div class="body">
+        <section class="banner contenedor-banner">
+          <section class="banner_title">
+            <h1>Bienvenido!</h1>
+          </section>
+          
+          <div class="banner_img">
+            <img src="../static/img/dna_116521.png"/>
+          </div>
+          
+        </section>
+        <div class="burbujas">
+          <div class="burbuja"></div>
+          <div class="burbuja"></div>
+          <div class="burbuja"></div>
+          <div class="burbuja"></div>
+          <div class="burbuja"></div>
+          <div class="burbuja"></div>
+          <div class="burbuja"></div>
+          <div class="burbuja"></div>
+          <div class="burbuja"></div>
         </div>
-      </nav>
-
-    {% block body %}
-
+      </div>
+  </div>
+  
+    
     {% endblock %}
 
     
