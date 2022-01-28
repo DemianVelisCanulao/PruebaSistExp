@@ -100,9 +100,23 @@ input[type=number]::-webkit-outer-spin-button {
 .burbuja:nth-child(2){
   width: 100px;
   height: 100px;
-  left: 35%;
+  left: 15%;
   animation-duration: 3s;
   animation-delay: 5s;
+}
+.burbuja:nth-child(3){
+  width: 120px;
+  height: 120px;
+  left: 35%;
+  animation-duration: 4s;
+  animation-delay: 2s;
+}
+.burbuja:nth-child(4){
+  width: 120px;
+  height: 120px;
+  left: 45%;
+  animation-duration: 5s;
+  animation-delay: 6s;
 }
 
 @keyframes burbujas{
