@@ -3,18 +3,19 @@
 {% block body %}
 
 <div class="row">
-    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
         {% if messages %}
-        {% for message in messages %}
-        <div class="alert alert-dismiss m-2 alert-success">
-            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            <strong class="text-dark">{{ message }}</strong>
-        </div>
-        {% endfor %}
+            {% for message in messages %}
+                <div class="alert alert-dismiss m-2 alert-success">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong class="text-dark">{{ message }}</strong>
+                </div>
+            {% endfor %}
         {% endif %}
-        <h2>Gestion de productos</h2>
+        
         <div class="card">
             <div class="card-body">
+                <h2>Gestión de productos</h2>
                 <form action="/ingresarProducto/" method="POST">{% csrf_token %}
                     
                     <div class="mb-3">
@@ -31,29 +32,37 @@
             </div>
         </div>
     </div> 
-    <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
+    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
             
         <div class="table-responsive">
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>NOMBRE</th>
-                        <th>DESCRIPCION</th>
-                        <th>ACTIVO</th>
-                        <th colspan="2">ACCION</th>
+                        <th>Número identificador</th>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Estado</th>
+                        <th>Acción</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for c in productos %}
+                    {% for producto in productos %}
                     
                     <tr>
-                        <td>{{c.id}}</td>
-                        <td>{{c.nombre}}</td>
-                        <td>{{c.descripcion}}</td>
-                        <td>{{c.activo}}</td>
-                        <td><a href="edicionProducto/{{c.id}}" class="btn btn-info">Editar</a></td>
-                        <td><a href="eliminarProducto/{{c.id}}" class="btn btn-danger btnEliminar">Eliminar</a></td>
+                        <td>{{producto.id}}</td>
+                        <td>{{producto.nombre}}</td>
+                        <td class="" style="max-width: 150px;">{{producto.descripcion}}</td>
+                        {% if producto.activo %}
+                            <td>Activo</td>
+                        {% else %}
+                            <td>Inhabilitado</td>
+                        {% endif %}  
+                        <td colspan="2">
+                            <a href="edicionProducto/{{producto.id}}" class="btn btn-info">Editar</a>
+                            &ensp;
+                            <a href="eliminarProducto/{{producto.id}}" class="btn btn-danger btnEliminar">Eliminar</a>
+                        </td>
+                        
                     </tr>
                    
                     {% endfor %}

@@ -2,7 +2,7 @@
 {% block body %}
 
     <div class="row">
-        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
             {% if messages %}
             {% for message in messages %}
             <div class="alert alert-dismiss m-2 alert-success">
@@ -11,17 +11,17 @@
             </div>
             {% endfor %}
             {% endif %}
-            <h2>Gestion de Bodegas</h2>
+            <h2>Gestión de Bodegas</h2>
             <div class="card">
                 <div class="card-body">
-                    <form action="/ingresarBodegas/" method="POST">{% csrf_token %}
+                    <form action="/ingresarBodegas/" method="POST">
+                        {% csrf_token %}
                         
                         <div class="mb-3">
                             <input type="text" id="txtNombreBodega" name="txtNombreBodega" class="form-control" placeholder="Nombre" required>
-                            
                         </div>
                         <div class="mb-3">
-                            <input type="text" id="txtUbicacion" name="txtUbicacion" class="form-control" placeholder="Ubicacion">
+                            <input type="text" id="txtUbicacion" name="txtUbicacion" class="form-control" placeholder="Ubicación">
                         </div>
                         <div class="mb-3">
                             <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>
@@ -30,7 +30,7 @@
                 </div>
             </div>
         </div> 
-        <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
                 
             <div class="table-responsive">
                 <table class="table table-striped">

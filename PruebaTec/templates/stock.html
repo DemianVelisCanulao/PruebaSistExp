@@ -13,16 +13,18 @@
                         <th>Producto</th>
                         <th>Detalle</th>
                         <th>Bodega</th>
+                        <th>Detalle Bodega</th>
                         <th>Stock</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for c in stockProductos %}
+                    {% for stock in stockProductos %}
                     <tr>
-                        <td>{{c.producto_id}}</td>
-                        <td>{{c.producto_id.descripcion}}</td>
-                        <td>{{c.bodega_id}}</td>
-                        <td>{{c.stock}}</td>
+                        <td>{{stock.id_producto}}</td>
+                        <td>{{stock.nombre_producto}}</td>
+                        <td>{{stock.id_bodega}}</td>
+                        <td>{{stock.nombre_bodega}}</td>
+                        <td>{{stock.stock_producto_bodega}}</td>
                     </tr>
                     {% endfor %}
                 </tbody>

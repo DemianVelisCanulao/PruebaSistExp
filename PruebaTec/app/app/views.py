@@ -1,10 +1,10 @@
 
 from django.shortcuts import redirect, render
-from .models import Bodega, Producto, Producto_Bodega
+from .models import Bodega, Producto, Producto_Bodega, Stock_Producto_Bodega
 from django.contrib import messages
 from django.views.generic import CreateView
 from .forms import ProductoBodegaForm
-
+from django.db.models import Sum
 # Create your views here.
 
 def home(request):
@@ -19,7 +19,12 @@ def bodegas(request):
     return render(request, "bodega.html", {"bodegas" : bodegasListado})   
 
 def stock(request):
-    stockProductos = Producto_Bodega.objects.all()
+    #stockProductos = Producto_Bodega.objects.all()
+    stockProductos = Stock_Producto_Bodega.objects.all().values()
+    for stock_producto_bodega in stockProductos:
+    # Acceder a los atributos del objeto
+        print(f"Nombre del producto: {stock_producto_bodega}")
+       
     return render(request, "stock.html", {"stockProductos": stockProductos})      
 
 
@@ -45,10 +50,12 @@ def editarProducto(request):
     id  = request.POST['txtIdProducto']
     nombre = request.POST['txtNombreProducto']
     descripcion = request.POST['txtDescripcionProducto']
-    activo = request.POST['checkProductoActivo']
-
+    if request.POST.get('checkProductoActivo') is not None:
+        activo = True
+    else:
+        activo = False
+    
     producto = Producto.objects.get(id = id)
-    producto.id = id
     producto.nombre = nombre
     producto.descripcion = descripcion
     producto.activo = activo

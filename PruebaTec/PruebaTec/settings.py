@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'PruebaTec.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 
-"""Conexcion a BD PostgreSql"""
+"""Conexion a BD PostgreSQL"""
 
 DATABASES = {
     'default': {
@@ -88,7 +88,7 @@ DATABASES = {
         'USER': 'postgres',
         'PASSWORD' : 'oracle',
         'HOST' : 'localhost',
-        'PORT' : '5433'
+        'PORT' : '5432'
         
     }
 }
@@ -124,7 +124,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+""" USE_TZ = True """
 
 
 # Static files (CSS, JavaScript, Images)
